@@ -3,8 +3,10 @@ package com.abhijith.navtest
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity(),Navigation {
 
     private lateinit var binding: NewLayoutTwoBinding
 
+    val vm:MainActivityStateViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = NewLayoutTwoBinding.inflate(layoutInflater)
@@ -43,3 +46,7 @@ interface Navigation{
     fun navigateToCame()
 }
 
+class MainActivityStateViewModel:ViewModel(){
+    var lastSelectedTab = 1
+
+}

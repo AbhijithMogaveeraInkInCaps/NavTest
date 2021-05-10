@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TableLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentViewHolder
 import androidx.viewpager2.widget.ViewPager2
@@ -14,6 +17,9 @@ import com.google.android.material.tabs.TabLayout
 import kotlin.random.Random
 
 class BottomOneFragment : Fragment(R.layout.activity_main),PlayableFragment {
+
+    val vm:MainActivityStateViewModel by activityViewModels()
+
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -90,7 +96,8 @@ class BottomOneFragment : Fragment(R.layout.activity_main),PlayableFragment {
                 }
             }
             findViewById<TabLayout>(R.id.tl)?.let {
-                it.selectTab(it.getTabAt(1))
+                it.selectedTabPosition
+                it.selectTab(it.getTabAt(vm.lastSelectedTab))
             }
         }
 
@@ -120,6 +127,7 @@ class BottomOneFragment : Fragment(R.layout.activity_main),PlayableFragment {
 
     override fun onPause() {
         super.onPause()
+        vm.lastSelectedTab = view?.findViewById<TabLayout>(R.id.tl)?.selectedTabPosition?:2
         log("FragmentOne","onPause()")
 
     }
