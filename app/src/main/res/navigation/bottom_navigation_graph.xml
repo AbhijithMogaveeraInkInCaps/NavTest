@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/bottom_navigation_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/bottom_navigation_graph"
+    app:startDestination="@id/mainFrag">
 
+    <fragment
+        android:id="@+id/mainFrag"
+        android:name="com.abhijith.navtest.MainFrag"
+        android:label="MainFrag" >
+        <action
+            android:id="@+id/action_mainFrag_to_camFragment"
+            app:destination="@id/camFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/camFragment"
+        android:name="com.abhijith.navtest.CamFragment"
+        android:label="CamFragment" >
+        <action
+            android:id="@+id/action_camFragment_to_camFragment2"
+            app:destination="@id/camFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/camFragment2"
+        android:name="com.abhijith.navtest.CamFragment2"
+        android:label="CamFragment2" />
 </navigation>

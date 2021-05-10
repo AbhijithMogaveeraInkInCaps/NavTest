@@ -38,8 +38,12 @@ class BottomOneFragment : Fragment(R.layout.activity_main),PlayableFragment {
                     }
                 })
             }
+
+
             findViewById<ViewPager2>(R.id.vp)?.apply {
+
                 adapter = object : FragmentStateAdapter(childFragmentManager, lifecycle) {
+
                     override fun getItemCount(): Int {
                         return 5
                     }
@@ -85,7 +89,11 @@ class BottomOneFragment : Fragment(R.layout.activity_main),PlayableFragment {
                     }
                 }
             }
+            findViewById<TabLayout>(R.id.tl)?.let {
+                it.selectTab(it.getTabAt(1))
+            }
         }
+
     }
 
     override fun onPauseWork() {
