@@ -28,10 +28,7 @@ class BottomOneFragment : Fragment(R.layout.activity_main),PlayableFragment {
             findViewById<TabLayout>(R.id.tl)?.apply {
                 addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                     override fun onTabSelected(tab: TabLayout.Tab?) {
-                        view.findViewById<ViewPager2>(R.id.vp).setCurrentItem(
-                            findViewById<TabLayout>(R.id.tl).selectedTabPosition,
-                            false
-                        )
+                        view.findViewById<ViewPager2>(R.id.vp).setCurrentItem(findViewById<TabLayout>(R.id.tl).selectedTabPosition, false)
                         //noting
                     }
 
