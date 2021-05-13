@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 
 class NewMainFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,7 +20,9 @@ class NewMainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val x = view.findViewById<ViewPager2>(R.id.vp)
+
         x.adapter = object : FragmentStateAdapter(childFragmentManager, lifecycle) {
             override fun getItemCount(): Int {
                 return 2
