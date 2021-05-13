@@ -3,13 +3,17 @@ package com.abhijith.navtest
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentViewHolder
 import androidx.viewpager2.widget.ViewPager2
@@ -152,7 +156,7 @@ class TabOneFragmet : Fragment(R.layout.third_layout),PlayableFragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.apply {
-            findViewById<TextView>(R.id.tv).text = Random.nextInt().toString() + "Fragment Two"
+            findViewById<TextView>(R.id.tv).text = Random.nextInt().toString() + "hAPPY"
         }
     }
 
@@ -260,7 +264,30 @@ class SubTabOneFragment : Fragment(R.layout.third_layout),PlayableFragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.apply {
-            findViewById<TextView>(R.id.tv).text = Random.nextInt().toString() + "Fragment Two"
+
+            findViewById<RecyclerView>(R.id.rv).apply {
+                layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.VERTICAL,false)
+                adapter = object : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+                    override fun onCreateViewHolder(
+                        parent: ViewGroup,
+                        viewType: Int
+                    ): RecyclerView.ViewHolder {
+                        return object : RecyclerView.ViewHolder(
+                            LayoutInflater.from(parent.context)
+                                .inflate(R.layout.view_holder, parent, false)
+                        ) {}
+                    }
+
+                    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
+                    }
+
+                    override fun getItemCount(): Int {
+                        return 30
+                    }
+
+                }
+            }
         }
     }
 

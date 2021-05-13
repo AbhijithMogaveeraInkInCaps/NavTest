@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/bottom_navigation_graph"
-    app:startDestination="@id/mainFrag">
+    app:startDestination="@id/newMainFragment">
 
     <fragment
         android:id="@+id/mainFrag"
@@ -23,4 +23,12 @@
         android:id="@+id/camFragment2"
         android:name="com.abhijith.navtest.CamFragment2"
         android:label="CamFragment2" />
+    <fragment
+        android:id="@+id/newMainFragment"
+        android:name="com.abhijith.navtest.NewMainFragment"
+        android:label="NewMainFragment" >
+        <action
+            android:id="@+id/action_newMainFragment_to_camFragment"
+            app:destination="@id/camFragment" />
+    </fragment>
 </navigation>
