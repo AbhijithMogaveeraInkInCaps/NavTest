@@ -40,5 +40,8 @@ class NewMainFragment : Fragment() {
 
             }
         }
+
+        x.setCurrentItem(1, false)
+
     }
 }

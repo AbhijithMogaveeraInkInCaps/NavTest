@@ -83,6 +83,7 @@ class TabTwoFragment : Fragment(R.layout.activity_main), PlayableFragment {
                 }
             }
         }
+
     }
 
     override fun onPauseWork() {
